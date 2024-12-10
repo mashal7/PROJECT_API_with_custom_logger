@@ -6,6 +6,9 @@ class CustomLogger:
 
     @classmethod
     def write_log_to_file(cls, data: str):
+        # Проверяем, существует ли папка 'logs', и создаём её при необходимости
+        os.makedirs(os.path.dirname(cls.file_name), exist_ok=True)
+
         with open(cls.file_name, 'a', encoding='utf-8') as logger_file:
             logger_file.write(data)
 
